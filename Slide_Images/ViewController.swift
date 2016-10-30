@@ -25,9 +25,9 @@ class ViewController: UIViewController {
     let swipeFromSec = UISwipeGestureRecognizer() // свайп обратно со второго на первый
     let swipeFromThird = UISwipeGestureRecognizer() // свайп обратно с третьего на второй
     
-    let swipeGesture = UISwipeGestureRecognizer() // универсальный свайп
+    //let swipeGesture = UISwipeGestureRecognizer() // универсальный свайп
     
-    var pageNumber = 1
+    //var pageNumber = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,23 +38,23 @@ class ViewController: UIViewController {
         openEdgeView.addTarget(self, action: #selector(swipeEdgeViewControll)) // что делаем когда нужно открыть менюшку
         
         /////// ПРИКРУЧИВАЕМ СВАЙПЫ
-        /*
+        
         swipeToSec.addTarget(self, action: #selector(toSecond)) // что делаем когда происходит свайп на вторую картинку
         swipeToThird.addTarget(self, action: #selector(toThird)) // что делаем когда происходит свайп на третью картинку
         swipeFromSec.addTarget(self, action: #selector(fromSecond)) // что делаем когда происходит свайп СО второй картинки на 1ю
         swipeFromThird.addTarget(self, action: #selector(fromThird)) // что делаем когда происходит свайп С третьей картинки на 2ю
-            */
-        
-        swipeGesture.addTarget(self, action: #selector(imageSwipe))
  
-            /*
+        
+        // swipeGesture.addTarget(self, action: #selector(imageSwipe))
+ 
+        
         // Направления свайпов
         swipeToSec.direction = .left
         swipeToThird.direction = .left
         swipeFromThird.direction = .right
         swipeFromSec.direction = .right
         openEdgeView.edges = .left
-             */
+        
         
         // РАЗМЕРЫ ВСЕХ ЭЛЕМЕНТОВ
         cView.frame = view.frame
@@ -92,10 +92,10 @@ class ViewController: UIViewController {
         // события:
         cView.addGestureRecognizer(closeEdgeView)
         cView.addGestureRecognizer(openEdgeView)
-        firstImage.addGestureRecognizer(swipeGesture)
-        secondImage.addGestureRecognizer(swipeGesture)
-        secondImage.addGestureRecognizer(swipeGesture)
-        thirdImage.addGestureRecognizer(swipeGesture)
+        firstImage.addGestureRecognizer(swipeToSec)
+        secondImage.addGestureRecognizer(swipeToThird)
+        secondImage.addGestureRecognizer(swipeFromSec)
+        thirdImage.addGestureRecognizer(swipeFromThird)
         
         
         
@@ -122,7 +122,7 @@ class ViewController: UIViewController {
     }
     
  
-    /*
+    
     
     //свайпаем на вторую картинку
     func toSecond(sender:UISwipeGestureRecognizer) {
@@ -156,8 +156,10 @@ class ViewController: UIViewController {
         }
     }
     
-    */
+ 
     
+    
+    /*
     func imageSwipe(sender:UISwipeGestureRecognizer) {
         if pageNumber == 1 {
             switch swipeGesture.direction {
@@ -207,7 +209,9 @@ class ViewController: UIViewController {
         }
         
         
-        }}
+        }
+ */
+ }
     
 
 
